@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/girisFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.mit.bitirmeodevi.ui.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/anasayfa2sepet"
+            app:destination="@id/sepetFragment" />
+        <action
+            android:id="@+id/anasayfa2detay"
+            app:destination="@id/yemekDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/girisFragment"
+        android:name="com.mit.bitirmeodevi.ui.fragment.GirisFragment"
+        android:label="fragment_giris"
+        tools:layout="@layout/fragment_giris" >
+        <action
+            android:id="@+id/giris2anasayfa"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.mit.bitirmeodevi.ui.fragment.SepetFragment"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" >
+        <argument
+            android:name="sepetYemekler"
+            app:argType="com.mit.bitirmeodevi.data.entity.SepetYemekler" />
+    </fragment>
+    <fragment
+        android:id="@+id/yemekDetayFragment"
+        android:name="com.mit.bitirmeodevi.ui.fragment.YemekDetayFragment"
+        android:label="fragment_yemek_detay"
+        tools:layout="@layout/fragment_yemek_detay" >
+        <action
+            android:id="@+id/detay2sepet"
+            app:destination="@id/sepetFragment"
+            app:popUpTo="@id/anasayfaFragment" />
+        <argument
+            android:name="yemekler"
+            app:argType="com.mit.bitirmeodevi.data.entity.Yemekler" />
+    </fragment>
+</navigation>
